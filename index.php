@@ -16,7 +16,10 @@ $f3 = Base::instance();
 
 
 //define default route -> diner.html
-$f3->route('GET /', function (){
+$f3->route('GET /', function ($f3){
+    $f3->set('username', 'kittyKat');
+    $f3->set('password', sha1('Password01'));
+    $f3->set('title', 'Working with templates');
 
     $view = new Template();
     echo $view-> render('views/info.html');

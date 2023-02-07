@@ -21,6 +21,20 @@ $f3->route('GET /', function ($f3){
     $f3->set('password', sha1('Password01'));
     $f3->set('title', 'Working with templates');
 
+    //add favorite food and color
+    $f3->set('food', 'sushi');
+    $f3->set('color', 'teal');
+
+    $f3->set('radius', 10);
+
+    $f3->set('fruits', array("apple", "banana", "orange", "strawberry") );
+    $f3->set('colors', array("red", "blue", "orange"));
+
+    $cupcakes = array("chocolate"=>"Chocolate Ganace", "strawberry"=>"Strawberry Shortcake", "maple"=>"Maple Walnut");
+    $f3->set('cupcakes', $cupcakes);
+
+    $f3->set('age', 38);
+
     $view = new Template();
     echo $view-> render('views/info.html');
 });

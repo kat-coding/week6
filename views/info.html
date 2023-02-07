@@ -5,10 +5,42 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Information Page</title>
+    <title>{{@title}}</title>
 </head>
 <body>
-<h1>Week 6</h1>
+<h1>{{@title}}</h1>
+<p>Logged in as {{@username}} using {{@password}}</p>
+<p>Your favorite food is {{@food}} and favorite color is {{@color}}</p>
 
+<p>Radius: {{@radius}} </p>
+<p>Circumference: {{round (2*pi() * @radius, 3)}}</p>
+
+<h3>My Favorite Fruits</h3>
+<ul>
+    <repeat group="{{ @fruits }}" value="{{ @fruit }}">
+        <li>{{ @fruit }}</li>
+    </repeat>
+</ul>
+
+
+<h4>Choose a Color</h4>
+<repeat group="{{ @colors }}" value="{{ @color }}">
+<label>
+    <input type="radio" name="color" value="{{ @color }}"> {{ ucfirst(@color) }}
+</label>
+</repeat>
+
+
+<h4>Cupcakes</h4>
+<repeat group="{{ @cupcakes}}" value="{{ @cupcake }}" key="{{ @key }}">
+<label>
+<input type="checkbox" name="flavor" value="{{ @key }}">{{ @cupcake }}
+</label>
+</repeat>
+
+<check if="{{ @age }} > 30">
+    <true><p>You are mature.</p></true>
+    <false><p>You are a kid. </p></false>
+</check>
 </body>
 </html>
